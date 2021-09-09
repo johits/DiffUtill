@@ -22,12 +22,6 @@ class MainActivity : AppCompatActivity() {
             binding.etText.setText("")
         }
 
-        binding.btnEdit.setOnClickListener {
-//            var word = binding.etText.text.toString()
-//            keyword.add(Keyword(word))
-            keywordAdapter.submitList(keyword.toMutableList())
-            binding.etText.setText("")
-        }
     }
 }
 

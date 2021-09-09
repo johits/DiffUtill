@@ -8,10 +8,5 @@ class KeywordViewHolder(layoutId: Int, parent: ViewGroup) :
 BindViewHolder<Keyword,RvItemBinding>(layoutId, parent){
     override fun  bind(item:Keyword){
         binding.tvKeyword.text =item.word
-        binding.tvKeyword.setOnClickListener {
-            binding.tvKeyword.visibility= View.GONE
-            binding.etKeyword.visibility= View.VISIBLE
-            binding.etKeyword.setText(item.word)
-        }
     }
 }

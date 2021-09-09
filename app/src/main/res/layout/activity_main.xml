@@ -14,7 +14,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="300dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,29 +26,24 @@
         android:id="@+id/et_text"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:hint="추가할 메시지를 입력해주세요."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+
+        app:layout_constraintEnd_toEndOf="@+id/btn_add"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/btn_add" />
 
     <Button
         android:id="@+id/btn_add"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="추가"
-        app:layout_constraintStart_toStartOf="@+id/et_text"
-        app:layout_constraintTop_toBottomOf="@+id/et_text" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btn_edit"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="수정"
-        app:layout_constraintEnd_toEndOf="@+id/et_text"
-        app:layout_constraintTop_toBottomOf="@+id/et_text" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

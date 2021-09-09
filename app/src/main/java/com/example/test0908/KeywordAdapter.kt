@@ -3,8 +3,7 @@ package com.example.test0908
 import android.view.ViewGroup
 import com.example.test0908.databinding.RvItemBinding
 
-//ListAdapter 만들어 줌
-
+//BaseListAdapter 상속
  class KeywordAdapter : BaseListAdapter<Keyword, RvItemBinding>() {
 
     override fun onCreateViewHolder(
