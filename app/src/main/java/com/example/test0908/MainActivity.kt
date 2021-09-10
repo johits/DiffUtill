@@ -22,6 +22,16 @@ class MainActivity : AppCompatActivity() {
             binding.etText.setText("")
         }
 
+        binding.btnDelete.setOnClickListener {
+            keywordAdapter.submitList(
+                keyword.map{
+                    it.word.toInt() }
+                    .filter{
+                        it % 2 !=0}
+                    .map{
+                        Keyword(it.toString()) })
+        }
+
     }
 }
 
