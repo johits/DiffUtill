@@ -1,13 +1,13 @@
 package com.example.test0908
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.test0908.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    private val keywordAdapter = KeywordAdapter()
+class MainActivity : AppCompatActivity(), KeywordAdapter.KeyWordListener {
+    private val keywordAdapter = KeywordAdapter(this)
     private val keyword = ArrayList<Keyword>()
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding.rv.adapter = keywordAdapter
 
         binding.btnAdd.setOnClickListener {
-            var word = binding.etText.text.toString()
+            val word = binding.etText.text.toString()
             keyword.add(Keyword(word))
             keywordAdapter.submitList(keyword.toMutableList())
             binding.etText.setText("")
@@ -24,14 +24,27 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnDelete.setOnClickListener {
             keywordAdapter.submitList(
-                keyword.map{
-                    it.word.toInt() }
-                    .filter{
-                        it % 2 !=0}
-                    .map{
-                        Keyword(it.toString()) })
+                keyword.map {
+                    it.word.toInt()
+                }
+                    .filter {
+                        it % 2 != 0
+                    }
+                    .map {
+                        Keyword(it.toString())
+                    })
         }
+        binding.btnNotify.setOnClickListener {
+            keywordAdapter.submitList(keyword.toMutableList())
+        }
+    }
 
+    // 뷰홀더 내의 edittext가 변경될 때 호출됨
+    override fun onEditTextChanged(text: String, position: Int) {
+        Log.d("테스트", "text: $text, position: $position")
+        keyword[position] = Keyword(word = text)
+
+        // 1. map을 통해 데이터 변경
 
     }
 }
